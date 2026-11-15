@@ -22,6 +22,7 @@ def solve_iteration():
     e=float(input('Enter an accuracy of aproximation(0.00006): '))
     p=1
     l=0
+    global k
     k=[]
     global table
     table=[]
@@ -69,8 +70,14 @@ def solve_iteration():
 
 
 def save_results_to_file():
-    global table
     with open('results.txt','w',encoding='utf-8') as file:
-        file.write(f"{'Спроба':<10}{'Поч. апроксим. на спробі':<27}{'К-ть ітерацій':<15}{'Корінь':<10}\n")
-        for t in range(len(table)-1):
-            file.write(f"{table[t][1]:<10}{table[t][2]:<10}{table[t][3]:<10}{table[t][4]:<10}\n")
+        file.write(f"{'Перелік коренів рівняння: ':<23}{set(k)}\n")
+        file.write('')
+        file.write(f"{'Спроба':<10}{'Початкова апроксимація на спробі':<35}{'К-ть ітерацій':<17}{'Корінь':<10}\n")
+        for t in range(len(table)):
+            file.write(f"{table[t][0]:<10}{table[t][1]:<35}{table[t][2]:<17}{table[t][3]:<10}\n")
+
+#Точка входу(цю функцію треба викликати у консолі, щоб запустити програму)            
+def main():
+    solve_iteration()
+    save_results_to_file()
