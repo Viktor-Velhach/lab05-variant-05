@@ -5,11 +5,11 @@
 
 #creating a started function
 def f(x):
-    return x**4 - 13* x**2 + 36 - 1/x
+    return x**4 #- 13* x**2 + 36 - 1/x
 
 #derivative of f(x)
 def df(x):
-    return 4* x**3 - 26*x + 1/x**2
+    return 4* x**3# - 26*x + 1/x**2
 
 #changing function for iteration method(x=phi(x))
 def phi(x, lam):
@@ -71,6 +71,8 @@ def solve_iteration():
         elif x==' ': 
             x = 0
         attempt += 1
+    if f(0)==0:
+        root.append(0.0)
     
     #Виведення списку-протоколу(кожен підсписок з нового рядку)
     print('Спроба; початкова апроксимація на цій спробі; к-ть ітерацій; корінь')
